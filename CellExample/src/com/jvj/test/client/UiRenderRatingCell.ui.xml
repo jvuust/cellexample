@@ -1,0 +1,64 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'>
+
+	<ui:with field='name' type='java.lang.String' />
+
+	<ui:with field='star1' type='com.google.gwt.safehtml.shared.SafeHtml' />
+	<ui:with field='star2' type='com.google.gwt.safehtml.shared.SafeHtml' />
+	<ui:with field='star3' type='com.google.gwt.safehtml.shared.SafeHtml' />
+	<ui:with field='star4' type='com.google.gwt.safehtml.shared.SafeHtml' />
+	<ui:with field='star5' type='com.google.gwt.safehtml.shared.SafeHtml' />
+
+	<ui:with field='star1class' type='java.lang.String' />
+	<ui:with field='star2class' type='java.lang.String' />
+	<ui:with field='star3class' type='java.lang.String' />
+	<ui:with field='star4class' type='java.lang.String' />
+	<ui:with field='star5class' type='java.lang.String' />
+
+	<ui:style field='styles' type="com.jvj.test.client.Styles">
+	.star {
+		color: black;
+	}
+	
+	.ratingStar {
+		color: gold;
+	}
+	
+	.userRatingStar {
+		color: gold;
+		text-shadow: 0 0 1px #000000;
+	}
+	
+	.userStar {
+		text-shadow: 0 0 1px #000000;
+	}
+	
+	.nameLabel {
+		font-size: 15px;
+		font-weight: bold;
+	}
+	</ui:style>
+
+	<div>
+		<span class='{styles.nameLabel}'>
+			<ui:text from='{name}' />
+		</span>
+		<div class='rating'>
+			<span ui:field='star5span' class='{star5class}'>
+				<ui:safehtml from='{star5}' />
+			</span>
+			<span ui:field='star4span' class='{star4class}'>
+				<ui:safehtml from='{star4}' />
+			</span>
+			<span ui:field='star3span' class='{star3class}'>
+				<ui:safehtml from='{star3}' />
+			</span>
+			<span ui:field='star2span' class='{star2class}'>
+				<ui:safehtml from='{star2}' />
+			</span>
+			<span ui:field='star1span' class='{star1class}'>
+				<ui:safehtml from='{star1}' />
+			</span>
+		</div>
+	</div>
+
+</ui:UiBinder>

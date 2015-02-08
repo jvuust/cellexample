@@ -1,0 +1,23 @@
+/** Add css rules here for your application. */
+.rating {
+	font-size: 15px;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+.rating>span {
+	display: inline-block;
+	position: relative;
+}
+
+.rating>span:hover, .rating>span:hover ~ span {
+	color: transparent;
+}
+
+.rating>span:hover:before, .rating>span:hover ~ span:before {
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: gold;
+	text-shadow: 0 0 1px #000000;
+}
