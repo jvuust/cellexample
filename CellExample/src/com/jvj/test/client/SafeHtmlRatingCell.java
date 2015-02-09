@@ -45,8 +45,7 @@ public class SafeHtmlRatingCell extends AbstractCell<Rating> {
 		if (BrowserEvents.CLICK.equals(event.getType())) {
 
 			// Find element clicked
-			Element e = getElementFromPoint(event.getClientX(),
-					event.getClientY());
+			Element e = Element.as(event.getEventTarget());
 
 			// If it was a star
 			if (e.getClassName().startsWith("star")) {
@@ -65,28 +64,6 @@ public class SafeHtmlRatingCell extends AbstractCell<Rating> {
 		// Call super to handle standard events like KeyDown
 		super.onBrowserEvent(context, parent, value, event, valueUpdater);
 	}
-
-	/**
-	 * 
-	 * Returns the topmost element of from given coordinates.
-	 * 
-	 * TODO fix crossplat issues clientX vs pageX. See quircksmode. Not critical
-	 * for vaadin as we scroll div istead of page.
-	 * 
-	 * @param x
-	 * @param y
-	 * @return the element at given coordinates
-	 */
-	public static native Element getElementFromPoint(int clientX, int clientY)
-	/*-{
-		var el = $wnd.document.elementFromPoint(clientX, clientY);
-		// Call elementFromPoint two times to make sure IE8 also returns something sensible if the application is running in an iframe
-		el = $wnd.document.elementFromPoint(clientX, clientY);
-		if (el != null && el.nodeType == 3) {
-			el = el.parentNode;
-		}
-		return el;
-	}-*/;
 
 	@Override
 	public void render(Context context, Rating value, SafeHtmlBuilder sb) {
